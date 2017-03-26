@@ -1,1 +1,1 @@
-console.log("Siema")
+console.log("Siema");
