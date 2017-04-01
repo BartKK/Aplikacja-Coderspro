@@ -10,27 +10,34 @@
 
 <body>
 
-<% for(var i = 0; i < titles.length; i++) { %>
-<li class="titles">
-      <span><%= titles[i].title %></span>
-      <span><% titles[i].description %></span>
-</li>
-<% } %>
+    <% for(var i = 0; i < titles.length; i++) { %>
+        <li class="titles">
+            <span><%= titles[i].title %></span>
+            <span><% titles[i].description %></span>
+        </li>
+        <% } %>
 
-<h1>Wiadomość</h1>
+            <h1>Wiadomość</h1>
 
-<form action="/titles" method="post">
-<input type = "text" name="title" placeholder="Place some title">
-<input type = "text" name="description" placeholder="Place some description">
-<button type="submit">Submit</button>
+            <form action="/titles" method="post">
+                <input type="text" name="title" placeholder="Place some title">
+                <input type="text" name="description" placeholder="Place some description">
+                <button type="submit">Submit</button>
 
-</form>
+            </form>
 
-<div>
-  <span> Switch some title "TEST"</span>
-  <button id="switch">Switch</button>
-</div>
-<script src="main.js"></script>
+            <div>
+                <span> Switch some title "TEST"</span>
+                <button id="switch">Switch</button>
+            </div>
+
+            <div>
+                <span>Delete</span>
+                <button id="delete">Delete</button>
+            </div>
+
+
+            <script src="main.js"></script>
 </body>
 
 </html>
