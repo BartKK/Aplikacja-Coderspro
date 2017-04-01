@@ -8,6 +8,9 @@ let db;
 
 app.use(bodyParser.urlencoded({encode: true, extended: true}));
 
+app.set('view engine', 'ejs');
+
+
 MongoClient.connect('mongodb://BartKK1:klopik12@ds147510.mlab.com:47510/coderspro', (err, res) => {
   if(err) {
     return console.error(err);
@@ -19,15 +22,16 @@ MongoClient.connect('mongodb://BartKK1:klopik12@ds147510.mlab.com:47510/coderspr
 });
 
 app.get('/', (req, res) => {
-console.log(__dirname);
-  res.sendFile(__dirname+'/index.html')
+  db.collection('coderspro').find().toArray((err, result) => {
+    res.render('index.ejs', {titles: result});
+  });
 });
 
 app.post('/titles', (req, res) => {
   const book = new BookSchema;
   book.title = req.body.title;
   book.description = req.body.description;
-  
+
 db.collection('coderspro')
 .save(req.body, (err, result) => {
   if (err) {

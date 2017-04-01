@@ -10,7 +10,12 @@
 
 <body>
 
-
+<% for(var i = 0; i < titles.length; i++) { %>
+<li class="titles">
+      <span><%= titles[i].title %></span>
+      <span><% titles[i].description %></span>
+</li>
+<% } %>
 
 <h1>Wiadomość</h1>
 
