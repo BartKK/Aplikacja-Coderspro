@@ -24,5 +24,12 @@ console.log(__dirname);
 });
 
 app.post('/titles', (req, res) => {
-  console.log('Wait for titles');
+db.collection('coderspro')
+.save(req.body, (err, result) => {
+  if (err) {
+    return console.error(err)
+  }
+console.info('Saved to database');
+res.redirect('/')
+})
 });
