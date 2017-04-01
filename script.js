@@ -7,6 +7,9 @@ const port = 3000;
 let db;
 
 app.use(bodyParser.urlencoded({encode: true, extended: true}));
+app.use(express.static(__dirname + '/public'));
+
+app.use(bodyParser.json());
 
 app.set('view engine', 'ejs');
 
@@ -40,4 +43,24 @@ db.collection('coderspro')
 console.info('Saved to database');
 res.redirect('/')
 })
+});
+
+app.put('/titles', (req, res) => {
+  db.collection('coderspro').findOneAndUpdate({
+    title: 'TEST'
+  }, {
+    $set: {
+      title: req.body.title,
+      description: req.body.description
+    }
+  }, {
+    sort: {_id: -1},
+    upsert: true
+  }, (err, response) => {
+
+      if (err) {
+        return res.send(err)
+      }
+      res.send(response);
+  })
 });
