@@ -3,13 +3,11 @@
   "version": "1.0.0",
   "main": "script.js",
   "dependencies": {
-    "express": "4.15.*"
-  },
-  "dependancies": {
-    "body-parser": "1.17.*",
     "express": "4.15.*",
-    
+    "body-parser": "1.17.*",
+    "mongodb": "2.2.*"
   },
+
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
