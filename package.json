@@ -5,6 +5,11 @@
   "dependencies": {
     "express": "4.15.*"
   },
+  "dependancies": {
+    "body-parser": "1.17.*",
+    "express": "4.15.*",
+    
+  },
   "devDependencies": {
     "nodemon": "^1.11.0"
   },
